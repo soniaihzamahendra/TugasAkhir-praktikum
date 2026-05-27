@@ -15,7 +15,7 @@ class BookshelfController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|string|max:255',
-            'code' => 'required|string|max:5', // Tambahkan validasi untuk code
+            'code' => 'required|string|max:5', 
         ]);
 
         Bookshelf::create([
