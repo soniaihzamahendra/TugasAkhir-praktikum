@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookshelfController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,4 +32,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::resource('bookshelf', BookshelfController::class)->middleware('auth');
+Route::put('/bookshelf/{bookshelf}', [BookshelfController::class, 'update'])->name('bookshelf.update');
 require __DIR__.'/auth.php';

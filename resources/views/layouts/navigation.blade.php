@@ -18,6 +18,11 @@
                     <x-nav-link :href="route('book.index')" :active="request()->routeIs('book.index')">
                         {{ __('List Book') }}
                     </x-nav-link>
+                    @hasrole('pustakawan')
+                        <x-nav-link :href="route('bookshelf.index')" :active="request()->routeIs('bookshelf.index')">
+                            {{ __('Rak Buku') }}
+                        </x-nav-link>
+                    @endhasrole
                 </div>
             </div>
 

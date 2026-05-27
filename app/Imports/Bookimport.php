@@ -15,15 +15,15 @@ class Bookimport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        $path = $row['cover']->storeAs;
+        // $path = $row['cover']->storeAs;
 
         return new Book([
-            'title' => $row['judul'],
-            'author' => $row['penulis'],
-            'year' => $row['tahun_terbit'],
-            'publisher' => $row['penerbit'],
-            'city' => $row['kota_terbit'],
-            'cover' => 'kosong',
+            'title'        => $row['judul'] ?? 'Tanpa Judul',
+            'author'       => $row['penulis'] ?? 'Tanpa Penulis',
+            'year'         => $row['tahun_terbit'] ?? date('Y'),
+            'publisher'    => $row['penerbit'] ?? 'Tanpa Penerbit',
+            'city'         => $row['kota_terbit'] ?? 'Tidak diketahui',
+            'cover'        => $row['cover'] ?? 'kosong',
             'bookshelf_id' => 1,
         ]);
     }
